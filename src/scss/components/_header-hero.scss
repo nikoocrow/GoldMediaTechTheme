@@ -1,21 +1,24 @@
 @use './variables' as *;
 @use 'mixins' as *;
 
-
 #hero-section{
     padding: 3.5rem;
     min-height: 70vh;
         @include mq(md) {
             padding: 0;
         }
-
 }
 
 .header {
     padding: 0;
     
+    // Header expandido a todo el ancho - CAMBIO PRINCIPAL
+    @include mq(md) {
+        width: 100%; // ← Se expande a todo el ancho disponible
+    }
+    
     // Reset básico para mobile
-       @include mq(md) {
+    @include mq(md) {
         * {
             margin: 0;
             padding: 0;
@@ -27,7 +30,7 @@
         }
         
         &__hero p {
-            font-size: 2.3 !important;
+            font-size: 2.3rem !important; // ← CORREGIDO: faltaba 'rem'
         }
         
         ul {
@@ -40,15 +43,18 @@
     }
     
     &__hero {
+        width: 100%; // ← CORRECCIÓN: asegurar ancho completo
+        
         h1{
             width: 100%;
             font-size: 5rem;
         }
         
         @include mq(md) {
-            width: 100%;
-            max-width: 1440px;
+            width: 100vw; // ← CORRECCIÓN PRINCIPAL: usar viewport width
             height: 85vh;
+            padding: 0 5rem; // ← CORRECCIÓN: padding lateral para el contenido
+            box-sizing: border-box; // ← CORRECCIÓN: incluir padding en el ancho
             
             h1 {
                 width: 300px;
@@ -67,9 +73,17 @@
     }
     
     &__branding {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        width: 100%; // ← CORRECCIÓN: asegurar ancho completo
+        
         @include mq(md) {
-            display: flex;
-            justify-content: center;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0; // ← CORRECCIÓN: remover padding extra
         }
     }
 
@@ -78,36 +92,38 @@
         
         @include mq(md) {
             padding: 5rem;
+            max-width: 1440px; // ← CORRECCIÓN: límite de ancho para el contenido
+            margin: 0 auto; // ← CORRECCIÓN: centrar el contenido
+            width: 100%; // ← CORRECCIÓN: asegurar que use el ancho disponible
         }
+        
         &--rating{
-          display: none;
-          @include mq(md) {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            padding: 2rem;
-            border-radius: 12px;
-            top: 45%;
-            right: 30%;
-            width: 250px;
-            background-color: $white-color;
+            display: none;
+            @include mq(md) {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                padding: 2rem;
+                border-radius: 12px;
+                top: 45%;
+                right: 30%;
+                width: 350px;
+                background-color: $white-color;
             }
-      }
-     }
+        }
+    }
     
     &__menu {
-
         ul li{
-              margin-left: 0;
+            margin-left: 0;
         }
 
-       
-
-         ul li a {
-                font-size: 1.7rem;
-                font-weight: bold;
-                color: black;
-            }
+        ul li a {
+            font-size: 1.7rem;
+            font-weight: bold;
+            color: black;
+        }
+        
         @include mq(md) {
             padding: 3rem;
             
@@ -116,14 +132,13 @@
             }
 
             ul li{
-                 margin-left: 1rem;
+                margin-left: 1rem;
             }
             
             ul li a {
                 font-size: 2rem;
                 font-weight: bold;
                 color: black;
-               
             }
         }
     }
@@ -132,7 +147,6 @@
 .header__call-to-action{
     margin-top: 3rem;
     a{
-        
         background-color: var(--primary-color, $primary-color);
         padding: 1rem 2rem;
         border-radius: 12px;
