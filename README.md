@@ -252,6 +252,8 @@ goldmediatechtheme/
    npm run build    # Compilación para producción
    npm run dev      # Compilación para desarrollo
    npm run watch    # Watch mode para desarrollo
+   gulp watch       # minificar scripts y scss mientras desarrollo
+   gulp             # se ejecuta solo una vez
    ```
 4. **Activar theme** desde `Apariencia > Themes` en WordPress admin
 5. **Instalar plugin** "Ubicaciones Gold Media Test" (requerido)
