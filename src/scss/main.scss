@@ -1,0 +1,114 @@
+// nikocrowtheme2025 - Estilos principales
+
+// TODAS las reglas @use DEBEN ir al inicio
+@use 'vendor/normalize';
+@use './variables' as *;
+@use 'mixins' as *;
+@use './components/header-hero';
+@use './components/header';
+@use 'components/navigation';
+@use 'components/content';
+@use 'components/sidebar';
+@use 'components/footer';
+
+// Fuentes de Google Fonts
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+// Base styles con !important para sobrescribir normalize
+
+ 
+
+html{
+   box-sizing: border-box;
+   font-size: 62.5%; /* 1rem = 10px */
+   margin: 0px;
+   padding: 0px;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Jost", sans-serif !important;
+  font-weight: bold !important;
+  margin: 0;
+  font-style: normal !important;
+}
+h1{
+  font-size: 3.8rem;
+}
+h2{
+  font-size: 3rem;
+}
+h3{
+  font-size: 2rem;
+}
+
+p {
+   font-family: "Jost", sans-serif !important;
+  font-size: 1.8rem;
+  font-weight: 400 !important;
+  margin: 0;
+}
+
+ul{
+  padding: 0px;
+  margin: 0px;
+}
+
+
+ul li{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+.shop-cofee{
+  background-color: transparent !important;
+  color: $primary-color !important;
+  text-decoration: underline !important;
+  font-weight: bold !important;
+
+}
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+
+
+a{
+  font-family: "Jost", sans-serif !important;
+  font-size: 1.8rem;
+  font-weight: 400 !important;
+  text-decoration: none;
+  color: $white-color; 
+}
+
+.post-meta{
+  font-size: 1.4rem;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Jost", sans-serif !important;
+}
+
+main{
+  max-width: 1440px;
+  padding: 1.5rem;
+  @include mq(md) {
+     padding: 3rem;
+  }
+}
+
+
+footer{
+   margin-top: auto;
+}

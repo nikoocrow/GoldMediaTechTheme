@@ -1,0 +1,14 @@
+@use '../variables' as *;
+@use 'mixins' as *;
+
+
+.site-footer{
+    background-color: $primary-color;
+    .copyright{
+        color: $white-color;
+        font-size: 1.4rem;
+        text-align: center;
+        padding: 20px 0;
+    }
+}
+
